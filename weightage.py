@@ -28,7 +28,7 @@ def alpha_a_weightage(population, alpha_a):
     l0=l*weights[1]/population
     m0=m*weights[2]/population
     s0=s*weights[3]/population
-    print(mean([n0,l0,m0,s0])*triangular(0,5))
+    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)
 
 for _ in range(50):
     alpha_a_weightage(500,.1)
