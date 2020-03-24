@@ -29,4 +29,5 @@ def alpha_a_weightage(population, alpha_a):
     s0=s*weights[3]/population
     print(mean([n0,l0,m0,s0]))
 
-alpha_a_weightage(500,.1)
+for _ in range(50):
+    alpha_a_weightage(500,.1)
