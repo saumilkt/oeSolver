@@ -18,8 +18,8 @@ def alpha_a_weightage(population, alpha_a):
             m+=1
         else:
             s+=1
-    print(n*population)
-    print(l*population)
-    print(m*population)
-    print(s*population)
+    print(n+' '+ weight*population +' ' + population)
+    print(l+' '+ weight*population +' ' + population)
+    print(m+' '+ weight*population +' ' + population)
+    print(s+' '+ weight*population +' ' + population)
 alpha_a_weightage(500,.1)
