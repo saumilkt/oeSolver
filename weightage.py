@@ -19,3 +19,4 @@ def alpha_a_weightage(population, alpha_a):
     print(l*population)
     print(m*population)
     print(s*population)
+alpha_a_weightage(500,.1)
