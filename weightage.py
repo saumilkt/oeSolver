@@ -10,7 +10,8 @@ def alpha_a_weightage(population, alpha_a):
     l=0
     s=0
     for _ in range(population):
-        temp=randint(0,population)
+        #temp=randint(0,population)
+        temp=random()*population
         if(temp<.25*population):
             n+=1
         elif(temp<.5*population):
