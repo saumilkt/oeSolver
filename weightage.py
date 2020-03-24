@@ -9,8 +9,8 @@ def alpha_a_weightage(population, alpha_a):
     m=0
     l=0
     s=0
+
     for _ in range(population):
-        #temp=randint(0,population)
         temp=random()*population
         if(temp<.25*population):
             n+=1
@@ -20,16 +20,15 @@ def alpha_a_weightage(population, alpha_a):
             m+=1
         else:
             s+=1
-    #print(n,' ', n*weights[0]/population ,' ' , population)
-    #print(l,' ', l*weights[1]/population ,' ' , population)
-    #print(m,' ', m*weights[2]/population ,' ' , population)
-    #print(s,' ', s*weights[3]/population ,' ' , population)
+
     n0=n*weights[0]/population
     l0=l*weights[1]/population
     m0=m*weights[2]/population
     s0=s*weights[3]/population
-    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)
-    print(final_weightage)
-    print(final_weightage*randint(0,5))
-for _ in range(50):
-    alpha_a_weightage(500,.1)
+
+    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)*randint(1,5)
+
+    if(final_weightage<alpha_a):
+        return final_weightage
+    else:
+        return mean([final_weightage,alpha_a])
