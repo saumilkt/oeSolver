@@ -30,6 +30,6 @@ def alpha_a_weightage(population, alpha_a):
     s0=s*weights[3]/population
     final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)
     print(final_weightage)
-    print(final_weightage*randint(0,3))
+    print(final_weightage*randint(0,5))
 for _ in range(50):
     alpha_a_weightage(500,.1)
