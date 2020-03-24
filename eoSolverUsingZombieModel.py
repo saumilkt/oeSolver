@@ -11,7 +11,7 @@ bd = 0.1000  # Desity-dependent death percent  (per day)
 I = .01*N0  # resurect percent (per day)
 v = .9000  # rate of maternal transmission
 alpha_i = 0.2 # pre-adult virulence
-alpha_a = 0.1 # adult virulence 
+alpha_a_base = 0.1 # adult virulence 
 
 
 # solve the system dy/dt = f(y, t)
