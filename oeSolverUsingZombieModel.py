@@ -6,6 +6,12 @@ from scipy.integrate import odeint
 plt.ion()
 plt.rcParams['figure.figsize'] = 10, 8
 
+# initial conditions
+N0 = 500.              # initial population
+y0 = [N0]     # initial condition vector
+t  = np.linspace(0, 5., 1000)         # time grid
+
+# @vars
 a = 50.000  # birth rate
 bi = 0.8000  # Desity-independent death percent (per day)
 bd = 0.1000  # Desity-dependent death percent  (per day)
@@ -23,10 +29,6 @@ def f(N, t):
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
      return [f0]
 
-# initial conditions
-N0 = 500.              # initial population
-y0 = [N0]     # initial condition vector
-t  = np.linspace(0, 5., 1000)         # time grid
 
 # solve the DEs
 soln = odeint(f, y0, t)
