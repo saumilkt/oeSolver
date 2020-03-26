@@ -1,5 +1,5 @@
 # OE Infection modeling
-import weightage
+import weightage as weight
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -19,7 +19,7 @@ I = .01*N0  # resurect percent (per day)
 v = .9000  # rate of maternal transmission
 alpha_i = 0.2 # pre-adult virulence
 alpha_a_base = 0.1 # adult virulence (standard)
-alpha_a = alpha_a_weightage(I, alpha_a_base) # adult virulence (parametric)
+alpha_a = weight.alpha_a_weightage(I, alpha_a_base) # adult virulence (parametric)
 
 
 # solve the system dy/dt = f(y, t)
