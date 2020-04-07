@@ -3,13 +3,14 @@ import weightage as weight
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+plt.ioff()
 plt.ion()
 plt.rcParams['figure.figsize'] = 10, 8
 
 # initial conditions
 N0 = 500.              # initial population
 y0 = [N0]     # initial condition vector
-t  = np.linspace(0, 5., 1000)         # time grid
+t  = np.linspace(0, .25, 10)         # time grid initialy 0 5. 1000
 
 # @vars
 a = 50.000  # birth rate
@@ -27,7 +28,7 @@ def f(N, t):
      Ni = N[0]
      # the model equations (see Munz et al. 2009)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
-     print(f0)
+     print(alpha_a)
      return [f0]
 
 
@@ -36,9 +37,11 @@ soln = odeint(f, y0, t)
 S = soln[:, 0]
 
 # plot results
-plt.figure()
-plt.plot(t, S, label='Living')
-plt.xlabel('Timesteps')
-plt.ylabel('Population')
-plt.title('OE Infestation - No Init. Dead Pop.; No New Births.')
-plt.legend(loc=0)
+for _ in range(5):
+    plt.figure()
+    plt.plot(t, S, label='Living')
+    plt.xlabel('Timesteps')
+    plt.ylabel('Population')
+    plt.title('OE Infestation - No Init. Dead Pop.; No New Births.')
+    plt.legend(loc=0)
+    plt.show()

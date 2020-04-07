@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+plt.ioff()
 plt.ion()
 plt.rcParams['figure.figsize'] = 10, 8
 
@@ -43,6 +44,7 @@ plt.xlabel('Days from outbreak')
 plt.ylabel('Population')
 plt.title('Zombie Apocalypse - No Init. Dead Pop.; No New Births.')
 plt.legend(loc=0)
+plt.show()
 
 # change the initial conditions
 R0 = 0.01*S0   # 1% of initial pop is dead
@@ -61,6 +63,7 @@ plt.xlabel('Days from outbreak')
 plt.ylabel('Population')
 plt.title('Zombie Apocalypse - 1% Init. Pop. is Dead; No New Births.')
 plt.legend(loc=0)
+plt.show()
 
 # change the initial conditions
 R0 = 0.01*S0   # 1% of initial pop is dead
@@ -72,11 +75,12 @@ soln = odeint(f, y0, t)
 S = soln[:, 0]
 Z = soln[:, 1]
 R = soln[:, 2]
-
-plt.figure()
-plt.plot(t, S, label='Living')
-plt.plot(t, Z, label='Zombies')
-plt.xlabel('Days from outbreak')
-plt.ylabel('Population')
-plt.title('Zombie Apocalypse - 1% Init. Pop. is Dead; 10 Daily Births')
-plt.legend(loc=0)
+for _ in range (20):
+    plt.figure()
+    plt.plot(t, S, label='Living')
+    plt.plot(t, Z, label='Zombies')
+    plt.xlabel('Days from outbreak')
+    plt.ylabel('Population')
+    plt.title('Zombie Apocalypse - 1% Init. Pop. is Dead; 10 Daily Births')
+    plt.legend(loc=0)
+    plt.show()
