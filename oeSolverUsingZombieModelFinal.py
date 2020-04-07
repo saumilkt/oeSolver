@@ -11,7 +11,6 @@ plt.rcParams['figure.figsize'] = 10, 8
 N0 = 500.              # initial population
 y0 = [N0]     # initial condition vector
 t  = np.linspace(0, .05, 10)         # time grid initialy 0 5. 1000
-
 # @vars
 a = 50.000  # birth rate
 bi = 0.8000  # Desity-independent death percent (per day)
@@ -36,21 +35,21 @@ def f(N, t):
 def f1(N, t):
      Ni = N[0]
      # the model equations (see Munz et al. 2009)
-     f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
+     f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a1)
      print(alpha_a)
      return [f0]
 
 def f2(N, t):
      Ni = N[0]
      # the model equations (see Munz et al. 2009)
-     f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
+     f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a2)
      print(alpha_a)
      return [f0]
 
 # solve the DEs
 soln = odeint(f, y0, t)
-soln1 = odeint(f, y0, t)
-soln2 = odeint(f, y0, t)
+soln1 = odeint(f1, y0, t)
+soln2 = odeint(f2, y0, t)
 S = soln[:, 0]
 S1 = soln1[:, 0]
 S2 = soln2[:, 0]
@@ -64,7 +63,7 @@ plt.plot(t, S1, label='alpha_a= '+str(alpha_a1))
 plt.plot(t, S2, label='alpha_a= '+str(alpha_a2))
 plt.xlabel('Timesteps')
 plt.ylabel('Population')
-plt.title('OE Infestation - No Init. Dead Pop.; No New Births.')
+plt.title('Effect of differring Virulence levels on Monarch Butterfly Population over Time')
 plt.legend(loc='upper right')
 plt.show()
 plt.savefig('plot.png')
