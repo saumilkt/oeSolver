@@ -10,7 +10,7 @@ plt.rcParams['figure.figsize'] = 10, 8
 # initial conditions
 N0 = 500.              # initial population
 y0 = [N0]     # initial condition vector
-t  = np.linspace(0, .25, 10)         # time grid initialy 0 5. 1000
+t  = np.linspace(0, .05, 10)         # time grid initialy 0 5. 1000
 
 # @vars
 a = 50.000  # birth rate
@@ -37,11 +37,11 @@ soln = odeint(f, y0, t)
 S = soln[:, 0]
 
 # plot results
-for _ in range(5):
-    plt.figure()
-    plt.plot(t, S, label='Living')
-    plt.xlabel('Timesteps')
-    plt.ylabel('Population')
-    plt.title('OE Infestation - No Init. Dead Pop.; No New Births.')
-    plt.legend(loc=0)
-    plt.show()
+plt.figure()
+plt.plot(t, S, label='alpha_a= '+str(alpha_a))
+plt.xlabel('Timesteps')
+plt.ylabel('Population')
+plt.title('OE Infestation - No Init. Dead Pop.; No New Births.')
+plt.legend(loc='upper right')
+plt.show()
+plt.savefig('plot.png')
