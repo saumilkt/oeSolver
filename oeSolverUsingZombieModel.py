@@ -27,6 +27,7 @@ def f(N, t):
      Ni = N[0]
      # the model equations (see Munz et al. 2009)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
+     print(f0)
      return [f0]
 
 
