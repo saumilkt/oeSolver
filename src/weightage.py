@@ -29,7 +29,7 @@ def alpha_a_weightage(population_infected, alpha_a):
     s0=s*weights[3]/population_infected
 
 # Determine Aggregate Weight
-    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)*randint(1,5) # jesus christ why does python not have a generic avg fxn...
+    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)*randint(1,5) # why does python not have a generic avg fxn...
 
 # Determine Final Weight
     if(final_weightage<alpha_a):
@@ -62,7 +62,7 @@ def alpha_i_weightage(population_infected, alpha_i):
     s0=s*weights[3]/population_infected
 
 # Determine Aggregate Weight
-    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)*randint(1,5) # jesus christ why does python not have a generic avg fxn...
+    final_weightage = mean([n0,l0,m0,s0])*triangular(0,5)*randint(1,5) # why does python not have a generic avg fxn...
 
 # Determine Final Weight
     if(final_weightage<alpha_i):
