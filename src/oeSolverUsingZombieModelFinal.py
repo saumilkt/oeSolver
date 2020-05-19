@@ -9,24 +9,24 @@ plt.ion()
 plt.rcParams['figure.figsize'] = 10, 8
 
 # initial conditions
-N0 = 500.              # initial population
-y0 = [N0]     # initial condition vector
-t  = np.linspace(0, .05, 11)         # time grid initialy 0 5. 1000
+N0 = 500. # initial population
+y0 = [N0] # initial condition vector
+t  = np.linspace(0, .05, 11) # time grid initialy 0 5. 1000
 # @vars
 a = 50.000  # birth rate
 bi = 12.8000  # Desity-independent death percent (per day)
 bd = 0.1000  # Desity-dependent death percent  (per day)
 I = .12*N0  # resurect percent (per day)
 v = 0.9000  # rate of maternal transmission
-alpha_i_base = 0.2 # pre-adult virulence (standard) ***rename to alpha_a_base when parametric study in effect
+alpha_i_base = 0.2 # pre-adult virulence (standard) ***rename to alpha_i_base when parametric study in effect
 alpha_a = 0.1 # adult virulence (standard) ***rename to alpha_a_base when parametric study in effect
 
-"""#parametrics
+"""# alpha_a_parametric
 alpha_a = weight.alpha_a_weightage(int(I), alpha_a_base) # adult virulence (parametric)
 alpha_a1 = weight.alpha_a_weightage(int(I), alpha_a_base) # adult virulence (parametric)
 alpha_a2 = weight.alpha_a_weightage(int(I), alpha_a_base) # adult virulence (parametric)
 """
-#parametrics
+# alpha_i_parametrics
 alpha_i = weight.alpha_a_weightage(int(I), alpha_i_base) # adult virulence (parametric)
 alpha_i1 = weight.alpha_a_weightage(int(I), alpha_i_base) # adult virulence (parametric)
 alpha_i2 = weight.alpha_a_weightage(int(I), alpha_i_base) # adult virulence (parametric)
@@ -34,28 +34,28 @@ alpha_i2 = weight.alpha_a_weightage(int(I), alpha_i_base) # adult virulence (par
 # solve the system dy/dt = f(y, t)
 def f(N, t):
      Ni = N[0]
-     # the model equations (see Munz et al. 2009)
+     # the model equation (see Altizer et al. 2004)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i-1))+alpha_a)
      print(f0)
      return [f0]
 
 def f1(N, t):
      Ni = N[0]
-     # the model equations (see Munz et al. 2009)
+     # the model equation (see Altizer et al. 2004)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i1-1))+alpha_a)
      print(f0)
      return [f0]
 
 def f2(N, t):
      Ni = N[0]
-     # the model equations (see Munz et al. 2009)
+     # the model equation (see Altizer et al. 2004)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i2-1))+alpha_a)
      print(f0)
      return [f0]
 
 def fcontrol(N, t): # remove if not implementing parametric study
      Ni = N[0]
-     # the model equations (see Munz et al. 2009)
+     # the model equation (see Altizer et al. 2004)
      f0 = Ni*(a-bi-bd*Ni)-I*((1+a*(v*alpha_i_base-1))+alpha_a)
      print(f0)
      return [f0]
